@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="../Libraries/jquery-3.5.1.min.js"></script>
+  <meta charset="utf-8">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Squada+One&family=Varela+Round&display=swap" rel="stylesheet">
+  <!-- 'Varela Round', sans-serif -->
+  <!-- 'Squada One', cursive -->
+  <!-- 'Cinzel Decorative', cursive -->
+</head>
+
+<body>
+
+  <div class="nav-bar">
+    <ul class="nav-list">
+      <li>
+        <div class="logo">
+          <a href="../"><img src="../logo.png" alt="Logo"></a>
+        </div>
+      </li>
+      <li>
+        <a href="../">
+          <div class="nav-option">home</div>
+        </a>
+      </li>
+      <li>
+        <a href="../Programs/">
+          <div class="nav-option">programs</div>
+        </a>
+      </li>
+      <li>
+        <a href="../Messages/">
+          <div class="nav-option">messages</div>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <div style="background: rgba(var(--orange), 0.7);" class="nav-option">about</div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <h1 class="about-header">About</h1>
+  <p class="about">This website was created by Om.</p>
+  <p class="about">He likes to spend unhealthy amounts of time on his
+    computer talking about himself in the third person.</p>
+  <p class="about">He has more trophies than you in Brawl Stars.</p>
+  <p class="about">He also has more hours than you in Brawl Stars.</p>
+  <div class="about" id="dont-click">
+    <button class="about-button">don't click me</button>
+  </div>
+  <button class="about about-button" id="popup-button">much thank to these</button>
+
+  <div class="popup">
+    <div class="popup-container">
+      <ul class="helpful-links">
+        <li>
+          <h1>These things helped me learn stuff</h1>
+        </li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=mU6anWqZJcc&t=20767s">Video About HTML and CSS</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/playlist?list=PLoYCgNOIyGABdI2V8I_SWo22tFpgh2s6_">jQuery Tutorial Playlist</a></li>
+        <li><a target="_blank" href="https://www.w3schools.com/">w3schools</a></li>
+        <li><a target="_blank" href="https://stackoverflow.com/">Stack Overflow</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=iiADhChRriM">JSON Tutorial</a></li>
+      </ul>
+      <button class="close-button">close</button>
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+
+      var popup = $(".popup");
+
+      $("#dont-click>button").on("click", function() {
+        console.log("hi")
+        this.disabled = true;
+        $(this).css("opacity", 0.6);
+        $(this).css("cursor", "not-allowed");
+        $("<p>This has been a test of self control. You failed.</p>").hide().appendTo("#dont-click").fadeIn(300);
+      });
+
+      popup.hide();
+      $("#popup-button").on("click", function() {
+        popup.fadeIn(300);
+      });
+      $(".close-button").on("click", function() {
+        popup.fadeOut(300);
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

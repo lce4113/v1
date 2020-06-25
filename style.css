@@ -1,0 +1,336 @@
+/* Apply To Full Page */
+/* variables */
+:root {
+  /* Colors */
+  --orange: 255, 130, 0;
+  --darkorange: 200, 100, 0;
+  --oyblend: 255, 208, 143;
+  --lightyellow: 255, 225, 175;
+  --lightpink: 255, 230, 230;
+  --blue: 100, 100, 255;
+  /* Sizes + Distances */
+  --navh: 6rem;
+  --navfs: 1.7rem;
+  --datenavw: 15vw;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+body {
+  width: 100vw;
+  background: linear-gradient(rgb(var(--lightyellow)), rgb(var(--oyblend)));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/* NAVIGATION BAR */
+/* full bar */
+.nav-bar {
+  background: rgba(var(--orange), 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-shadow: 3px 3px 0px rgb(0, 0, 0, 0.2);
+}
+
+/* list of options */
+.nav-list {
+  display: flex;
+}
+
+/* logo img */
+.logo img {
+  height: var(--navh);
+}
+
+/* logo div */
+.logo {
+  background: rgba(var(--orange), 0.7);
+  border-right: 5px solid rgba(var(--darkorange), 0.7);
+  height: var(--navh);
+  padding: 0rem 3rem;
+}
+
+/* option divs */
+.nav-option {
+  padding: 0rem 2rem;
+  height: var(--navh);
+  font-size: var(--navfs);
+  line-height: var(--navh);
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Varela Round', sans-serif;
+  text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2);
+  transition: background 0.5s, text-shadow 0.5s;
+}
+
+.nav-option:hover {
+  background: rgba(var(--orange), 0.7);
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* links for option divs */
+.nav-list>li>a {
+  text-decoration: none;
+}
+
+/* H O M E */
+/* DATE NAVIGATION */
+.date-nav {
+  position: fixed;
+  width: var(--datenavw);
+  height: calc(100vw - 4rem - var(--navh));
+  margin-left: 1rem;
+  top: calc(var(--navh) + 2rem);
+  padding: 0rem 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.date {
+  text-align: center;
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.date a {
+  color: rgb(var(--blue));
+  text-decoration: none;
+}
+
+.date a:hover {
+  text-decoration: underline;
+}
+
+/* ALL UPDATES */
+/* div containing all updates */
+.updates-container {
+  margin-left: calc(var(--datenavw) + 2rem);
+  margin-top: calc(var(--navh) + 1rem);
+}
+
+/* header */
+.update-header {
+  margin-right: 1rem;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Cinzel Decorative', cursive;
+  letter-spacing: 0.5 rem;
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: rgb(var(--orange));
+  border-radius: 10px;
+  border-bottom: 10px solid rgb(var(--orange));
+  transition: text-shadow 0.5s;
+}
+
+/* dates */
+.updates-container h2 {
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+/* Program Card Defaults */
+/* full card */
+.program-card {
+  display: inline-block;
+  position: relative;
+  width: 15rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
+}
+
+.program-card:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* thumbnail div */
+.program-thumbnail {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+/* thumbnail img */
+.program-thumbnail img {
+  width: 100%;
+  transition: all 0.5s;
+  filter: brightness(70%);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  transition: filter 0.5s;
+}
+
+.program-card:hover div>img {
+  filter: brightness(50%);
+}
+
+/* program title */
+.program-thumbnail div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  letter-spacing: 0.5rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  transition: text-shadow 0.5s, font-size 0.5s;
+}
+
+.program-card:hover img+div {
+  text-shadow: 0px 0px 10px white;
+  font-size: 3rem;
+}
+
+/* program description */
+.program-card p {
+  color: black;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Program Card Individuals */
+.snake:hover img+div {
+  text-shadow: 0px 0px 10px white;
+}
+
+/* P R O G R A M S */
+/* U P D A T E S */
+/* A B O U T */
+.about-header {
+  margin: calc(var(--navh) + 1.5rem) 1rem 1rem;
+  color: rgb(var(--orange));
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 4rem;
+}
+
+.about {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 2rem;
+  margin: 2rem 1rem;
+}
+
+/* ABOUT BUTTONS */
+#dont-click {
+  margin: 0;
+}
+
+.about-button {
+  background: rgb(var(--orange));
+  color: white;
+  padding: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: background 0.1s, box-shadow 0.1s;
+  overflow: hidden;
+  position: relative;
+  display: inline;
+}
+
+.about-button:active {
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* specific to don't click button */
+#dont-click>button {
+  margin: 0rem 1rem;
+  text-transform: uppercase;
+}
+
+/* Things Buttons Trigger */
+/* you failed message */
+#dont-click>p {
+  color: black;
+  font-size: 2rem;
+  display: inline;
+  position: relative;
+  top: 2.5px;
+}
+
+/* Popup */
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.popup-container {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  padding: 1rem;
+  background: white;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* ul containing links and header */
+.helpful-links {
+  text-align: center;
+}
+
+/* each li in ul */
+.helpful-links>li {
+  margin: 1rem;
+  font-family: 'Varela Round', sans-serif;
+}
+
+/* header for popup */
+.helpful-links>li>h1 {
+  font-size: 2.5rem;
+  background: rgb(var(--orange));
+  padding: 1rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+/* links in popup */
+.helpful-links>li>a {
+  font-size: 2rem;
+  color: rgb(var(--blue));
+  text-decoration: none;
+}
+
+.helpful-links>li>a:hover {
+  text-decoration: underline;
+}
+
+/* close button at bottom right */
+.close-button {
+  background: white;
+  color: rgb(var(--orange));
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.1s, box-shadow 0.1s;
+  float: right;
+  display: inline;
+  transition: background 0.2s, color 0.2s;
+}
+
+.close-button:hover {
+  background: rgb(var(--orange));
+  color: white;
+}
+
+/* dont remove */

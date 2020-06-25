@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="../Libraries/jquery-3.5.1.min.js"></script>
+  <meta charset="utf-8">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Squada+One&family=Varela+Round&display=swap" rel="stylesheet">
+  <!-- 'Varela Round', sans-serif -->
+  <!-- 'Squada One', cursive -->
+  <!-- 'Cinzel Decorative', cursive -->
+</head>
+
+<body>
+
+  <div class="nav-bar">
+    <ul class="nav-list">
+      <li>
+        <div class="logo">
+          <a href=""><img src="./logo.png" alt="Logo"></a>
+        </div>
+      </li>
+      <li>
+        <a href="">
+          <div style="background: rgba(var(--orange), 0.7);" class="nav-option">home</div>
+        </a>
+      </li>
+      <li>
+        <a href="./Programs/">
+          <div class="nav-option">programs</div>
+        </a>
+      </li>
+      <li>
+        <a href="./Messages/">
+          <div class="nav-option">messages</div>
+        </a>
+      </li>
+      <li>
+        <a href="./About/">
+          <div class="nav-option">about</div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="date-nav">
+    <ul>
+      <li>
+        <div class="date"><a href="#June-22-2020">7/22/2020</a></div>
+      </li>
+      <li>
+        <div class="date"><a href="">hi</a></div>
+      </li>
+      <li>
+        <div class="date"><a href="">hi</a></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="updates-container">
+
+    <div class="update-header">all updates</div>
+
+    <h2 id="June-22-2020">June 22, 2020</h2>
+    <a href="./Programs/Snake/">
+      <div class="program-card snake">
+        <div class="program-thumbnail">
+          <img src="./Programs/Snake/SnakeThumbnail.png" alt="Snake Thumbnail">
+          <div>snake</div>
+        </div>
+        <p>Help the snake collect as many apples as it can.
+          Just don't let it run into itself!</p>
+      </div>
+    </a>
+
+  </div>
+
+  <script>
+    var updates = [{
+      "type": "program",
+      "name": "snake",
+      "description": `Help the snake collect as many apples as it can.
+      Just don't let it run into itself!`,
+      "thumbnail": "./Programs/Snake/SnakeThumbnail.png"
+    }]
+  </script>
+
+</body>
+
+</html>
