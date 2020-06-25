@@ -18,6 +18,7 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
+  font-size: 10px;
 }
 
 body {
@@ -55,7 +56,7 @@ button:focus {
 /* logo div */
 .logo {
   background: rgba(var(--orange), 0.7);
-  border-right: 5px solid rgba(var(--darkorange), 0.7);
+  border-right: 2px solid rgba(var(--darkorange), 0.7);
   height: var(--navh);
   padding: 0rem 3rem;
 }
@@ -97,12 +98,12 @@ button:focus {
 
 .date {
   text-align: center;
-  font-size: 2rem;
   padding: 0.5rem;
 }
 
 .date a {
   color: rgb(var(--blue));
+  font-size: 2rem;
   text-decoration: none;
 }
 
@@ -127,8 +128,8 @@ button:focus {
   font-size: 3rem;
   text-transform: capitalize;
   color: rgb(var(--orange));
-  border-radius: 10px;
-  border-bottom: 10px solid rgb(var(--orange));
+  border-radius: 5px;
+  border-bottom: 5px solid rgb(var(--orange));
   transition: text-shadow 0.5s;
 }
 
