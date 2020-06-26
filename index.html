@@ -49,40 +49,12 @@
 
   <div class="date-nav">
     <ul>
-      <li>
-        <div class="date"><a href="#June-22-2020">7/22/2020</a></div>
-      </li>
-      <li>
-        <div class="date"><a href="">hi</a></div>
-      </li>
-      <li>
-        <div class="date"><a href="">hi</a></div>
-      </li>
     </ul>
   </div>
 
   <div class="updates-container">
 
     <div class="update-header">all updates</div>
-
-    <h2 id="June-22-2020">June 22, 2020</h2>
-
-    <a href="./Programs/Snake/">
-      <div class="program-card snake">
-        <div class="program-thumbnail">
-          <img src="./Programs/Snake/thumbnail.png" alt="Snake Thumbnail">
-          <div>snake</div>
-        </div>
-        <p>Help the snake collect as many apples as it can.
-          Just don't let it run into itself!</p>
-      </div>
-    </a>
-
-    <div class="message-card first-message">
-      <h3>this is my first message</h3>
-      <p>This is a website to showcase Om's work.
-        Messages are a way to say stuff.</p>
-    </div>
 
     <template id="program">
       <a href={{path}}>
@@ -109,10 +81,22 @@
     $(function() {
 
       $.getJSON("./updates.json", function(allUpdates) {
-        $.each(allUpdates, function(i, update) {
-          var template = $("template#" + update.type).html();
-          $(".updates-container").append(Mustache.render(template, update));
+        $.each(allUpdates, function(i, updatesByDate) {
+          $(".updates-container").append(Mustache.render(
+            "<h2 id={{shortform}}>{{date}}</h2>",
+            updatesByDate[0]));
+          $(".date-nav>ul").append(Mustache.render(
+            "<li><div class=\"date\"><a href=\"#{{shortform}}\">{{shortform}}</a></div></li>",
+            updatesByDate[0]));
+          $.each(updatesByDate[1], function(i, update) {
+            var template = $("template#" + update.type).html();
+            $(".updates-container").append(Mustache.render(template, update));
+          });
         });
+      });
+
+      $(".message-card").on("click", function() {
+
       });
 
     });
