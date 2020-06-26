@@ -3,7 +3,7 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="../style.css">
-  <script src="../Libraries/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta charset="utf-8">
 
   <!-- Fonts -->
@@ -78,7 +78,6 @@
       var popup = $(".popup");
 
       $("#dont-click>button").on("click", function() {
-        console.log("hi")
         this.disabled = true;
         $(this).css("opacity", 0.6);
         $(this).css("cursor", "not-allowed");
