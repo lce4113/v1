@@ -3,7 +3,7 @@
 
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-  <script src="../../Libraries/p5.sound.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <meta charset="utf-8">
 </head>
@@ -39,6 +39,30 @@
     </ul>
   </div>
   <script src="snake.js"></script>
+  <div class="tint"></div>
 </body>
+
+<style>
+  body {
+    background: rgb(175, 255, 175);
+  }
+
+  .p5Canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .tint {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, calc(90/255));
+    z-index: -1;
+  }
+</style>
 
 </html>

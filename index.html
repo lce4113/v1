@@ -53,49 +53,79 @@
   </div>
 
   <div class="updates-container">
-
     <div class="update-header">all updates</div>
+  </div>
 
-    <template id="program">
-      <a href={{path}}>
-        <div class="program-card + {{div-class}}">
-          <div class="program-thumbnail">
-            <img src={{thumbnail-path}} alt="{{name}} Thumbnail">
-            <div>{{name}}</div>
-          </div>
-          <p>{{description}}</p>
+  <template id="program">
+    <a href={{path}}>
+      <div class="program-card" id={{div-class}}>
+        <div class="program-thumbnail">
+          <img src={{thumbnail-path}} alt="{{name}} Thumbnail">
+          <div>{{name}}</div>
         </div>
-      </a>
-    </template>
+        <p>{{description}}</p>
+      </div>
+    </a>
+  </template>
 
-    <template id="message">
-      <div class="message-card {{div-class}}">
+  <template id="message">
+    <div class="message-card" id={{div-class}}>
+      <h3>{{title}}</h3>
+      <p>{{message}}</p>
+    </div>
+  </template>
+
+  <template id="message-popup">
+    <div class="popup">
+      <div class="popup-container">
         <h3>{{title}}</h3>
         <p>{{message}}</p>
+        <br>
+        <button class="close-button">close</button>
       </div>
-    </template>
+    </div>
+  </template>
 
-  </div>
 
   <script>
     $(function() {
 
-      $.getJSON("./updates.json", function(allUpdates) {
-        $.each(allUpdates, function(i, updatesByDate) {
+      // Retrieving data from .json file
+      $.getJSON("./updates.json", function(allUpdateData) {
+
+        // Shpwing data from json file
+        $.each(allUpdateData, function(i, updatesByDate) {
+
           $(".updates-container").append(Mustache.render(
-            "<h2 id={{shortform}}>{{date}}</h2>",
+            '<h2 class="date" id={{shortform}}>{{date}}</h2>',
             updatesByDate[0]));
           $(".date-nav>ul").append(Mustache.render(
-            "<li><div class=\"date\"><a href=\"#{{shortform}}\">{{shortform}}</a></div></li>",
+            '<li><div class="date-ref"><a href="#{{shortform}}">{{shortform}}</a></div></li>',
             updatesByDate[0]));
-          $.each(updatesByDate[1], function(i, update) {
-            var template = $("template#" + update.type).html();
-            $(".updates-container").append(Mustache.render(template, update));
+          $.each(updatesByDate[1], function(i, updateData) {
+            var template = $("template#" + updateData.type).html();
+            var update = Mustache.render(template, updateData);
+            $(".updates-container").append(update);
           });
-        });
-      });
 
-      $(".message-card").on("click", function() {
+        });
+
+        // Show message when clicked
+        $(".message-card").on("click", function() {
+
+          var template = $("#message-popup").html();
+          var popup = Mustache.render(template, {
+            title: $(this).children("h3").text(),
+            message: $(this).children("p").text()
+          });
+          $(popup).hide().appendTo("body").fadeIn(300);
+
+          // Close message when close button clicked
+          $(".close-button").on("click", function() {
+            $(this).closest(".popup").fadeOut(300);
+          });
+
+        });
 
       });
 

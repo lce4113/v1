@@ -2,7 +2,8 @@ var squares, gridSize, status, dir, dirStack, framesSinceDeath, eaten;
 
 function startGame() {
 
-  gridSize = floor(min(width, height)*1/20);
+  $(function() {$(".tint").hide();});
+  gridSize = 25;
   status = "playing";
   squares = new Array(2).fill( createVector(width%gridSize/2 + gridSize*floor(width/gridSize/2), height%gridSize/2 + gridSize*floor(height/gridSize/2)) );
   dir = createVector(0, 0);
@@ -14,10 +15,8 @@ function startGame() {
 }
 
 function setup() {
-
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(524, 524);
   startGame();
-
 }
 
 function draw() {
@@ -25,6 +24,7 @@ function draw() {
   // Draw background
   noStroke();
   background(175, 255, 175);
+  // background(175+(255-175)*90/255, 255, 175+(255-175)*90/255);
   for (let i = 0; i < floor(width/gridSize); i++) {
     for (let j = 0; j < floor(height/gridSize); j++) {
       if ( (i+j)%2 == 0 ) {
@@ -96,7 +96,8 @@ function draw() {
     framesSinceDeath++;
 
     // White tint
-    background(255, 255, 255, min(100, framesSinceDeath*3));
+    $(function() {$(".tint").fadeIn(500);});
+    background(255, 255, 255, min(90, framesSinceDeath*3));
 
     // "You scored __" and "Click anywhere to play again."
     noStroke();
@@ -123,7 +124,7 @@ function draw() {
 }
 
 function keyTyped() {
-  
+
   if ( status == "playing" ) {
     if ( key == "i" || key == "w" || keyCode == UP_ARROW ) {
       dirStack.push(createVector(0, -gridSize));
