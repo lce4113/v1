@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="stylesheet" type="text/css" href="./style.css">
   <meta charset="utf-8">
@@ -45,6 +47,67 @@
     </ul>
   </div>
 
+  <div class="message-container">
+  </div>
+
+  <template id="message">
+    <div class="message-card" id={{div-class}}>
+      <h3>{{title}}</h3>
+      <p>{{message}}</p>
+    </div>
+  </template>
+
+  <template id="message-popup">
+    <div class="popup">
+      <div class="popup-container">
+        <h3>{{title}}</h3>
+        <p>{{message}}</p>
+        <br>
+        <button class="close-button">close</button>
+      </div>
+    </div>
+  </template>
+
 </body>
+
+<script>
+  $(function() {
+
+    $.getJSON("../updates.json", function(allUpdateData) {
+
+      // Shpwing data from json file
+      $.each(allUpdateData, function(i, updatesByDate) {
+
+        $.each(updatesByDate[1], function(j, updateData) {
+          if (updateData.type == "message") {
+            var template = $("template#message").html();
+            var update = Mustache.render(template, updateData);
+            $(".message-container").append(update);
+          }
+        });
+
+      });
+
+      // Show message when clicked
+      $(".message-card").on("click", function() {
+
+        var template = $("#message-popup").html();
+        var popup = Mustache.render(template, {
+          title: $(this).children("h3").text(),
+          message: $(this).children("p").text()
+        });
+        $(popup).hide().appendTo("body").fadeIn(300);
+
+        // Close message when close button clicked
+        $(".close-button").on("click", function() {
+          $(this).closest(".popup").fadeOut(300);
+        });
+
+      });
+
+    });
+
+  });
+</script>
 
 </html>

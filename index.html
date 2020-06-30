@@ -6,13 +6,13 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
-  <meta charset="utf-f8">
+  <meta charset="utf-8">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Squada+One&family=Varela+Round&display=swap" rel="stylesheet">
-  <!-- 'Varela Round', sans-serif -->
-  <!-- 'Squada One', cursive -->
-  <!-- 'Cinzel Decorative', cursive -->
+  <!-- 'Varela Round', sans-serif; -->
+  <!-- 'Squada One', cursive; -->
+  <!-- 'Cinzel Decorative', cursive; -->
 </head>
 
 <body>
@@ -57,10 +57,10 @@
   </div>
 
   <template id="program">
-    <a href={{path}}>
+    <a href="./Programs/{{path}}">
       <div class="program-card" id={{div-class}}>
         <div class="program-thumbnail">
-          <img src={{thumbnail-path}} alt="{{name}} Thumbnail">
+          <img src="./Programs/{{thumbnail-path}}" alt="{{name}} Thumbnail">
           <div>{{name}}</div>
         </div>
         <p>{{description}}</p>
@@ -102,7 +102,7 @@
           $(".date-nav>ul").append(Mustache.render(
             '<li><div class="date-ref"><a href="#{{shortform}}">{{shortform}}</a></div></li>',
             updatesByDate[0]));
-          $.each(updatesByDate[1], function(i, updateData) {
+          $.each(updatesByDate[1], function(j, updateData) {
             var template = $("template#" + updateData.type).html();
             var update = Mustache.render(template, updateData);
             $(".updates-container").append(update);

@@ -1,0 +1,19 @@
+/* variables */
+:root {
+  /* Colors */
+  --orange: 255, 130, 0;
+  --darkorange: 200, 100, 0;
+  --oyblend: 255, 215, 175;
+  --lightyellow: 255, 225, 200;
+  --lightpink: 255, 230, 230;
+  --blue: 100, 100, 255;
+  /* Sizes + Distances */
+  --navh: 6rem;
+  --navfs: 1.7rem;
+  --datenavw: 15vw;
+}
+
+.program-container {
+  margin-top: calc(var(--navh) + 2rem);
+  margin-left: 2rem;
+}

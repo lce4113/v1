@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="stylesheet" type="text/css" href="./style.css">
   <meta charset="utf-8">
@@ -45,6 +47,44 @@
     </ul>
   </div>
 
+  <div class="program-container">
+  </div>
+
+  <template id="program">
+    <a href="./{{path}}">
+      <div class="program-card" id={{div-class}}>
+        <div class="program-thumbnail">
+          <img src="./{{thumbnail-path}}" alt="{{name}} Thumbnail">
+          <div>{{name}}</div>
+        </div>
+        <p>{{description}}</p>
+      </div>
+    </a>
+  </template>
+
 </body>
+
+<script>
+  $(function() {
+
+    $.getJSON("../updates.json", function(allUpdateData) {
+
+      // Shpwing data from json file
+      $.each(allUpdateData, function(i, updatesByDate) {
+
+        $.each(updatesByDate[1], function(j, updateData) {
+          if (updateData.type == "program") {
+            var template = $("template#program").html();
+            var update = Mustache.render(template, updateData);
+            $(".program-container").append(update);
+          }
+        });
+
+      });
+
+    });
+
+  });
+</script>
 
 </html>

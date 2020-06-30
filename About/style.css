@@ -12,10 +12,6 @@
 }
 
 /* BUTTONS */
-#dont-click {
-  margin: 0;
-}
-
 .about-button {
   background: rgb(var(--orange));
   color: white;
@@ -25,7 +21,7 @@
   text-transform: uppercase;
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
   border: none;
-  transition: background 0.1s, box-shadow 0.1s;
+  transition: box-shadow 0.1s, transform 0.1s;
   overflow: hidden;
   position: relative;
   display: inline;
@@ -33,6 +29,11 @@
 
 .about-button:active {
   box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  transform: translate(2px, 2px);
+}
+
+#dont-click {
+  margin: 0;
 }
 
 /* specific to don't click button */

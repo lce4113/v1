@@ -123,16 +123,27 @@ function draw() {
 
 }
 
-function keyTyped() {
+document.onkeydown = function() {
+  if ( event.key == "ArrowUp" ) {
+    dirStack.push(createVector(0, -gridSize));
+  }  else if ( event.key == "ArrowLeft" ) {
+    dirStack.push(createVector(-gridSize, 0));
+  } else if ( event.key == "ArrowDown" ) {
+    dirStack.push(createVector(0, gridSize));
+  } else if ( event.key == "ArrowRight" ) {
+    dirStack.push(createVector(gridSize, 0));
+  }
+}
 
+function keyTyped() {
   if ( status == "playing" ) {
-    if ( key == "i" || key == "w" || keyCode == UP_ARROW ) {
+    if ( key == "i" || key == "w" ) {
       dirStack.push(createVector(0, -gridSize));
-    } else if ( key == "j" || key == "a" || keyCode == LEFT_ARROW ) {
+    } else if ( key == "j" || key == "a" ) {
       dirStack.push(createVector(-gridSize, 0));
-    } else if ( key == "k" || key == "s" || keyCode == DOWN_ARROW ) {
+    } else if ( key == "k" || key == "s" ) {
       dirStack.push(createVector(0, gridSize));
-    } else if ( key == "l" || key == "d" || keyCode == RIGHT_ARROW ) {
+    } else if ( key == "l" || key == "d" ) {
       dirStack.push(createVector(gridSize, 0));
     } else if ( key == " " ) {
       status = "paused";
@@ -142,5 +153,4 @@ function keyTyped() {
   } else if ( status == "not playing" ) {
     startGame();
   }
-
 }
