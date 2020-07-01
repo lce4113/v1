@@ -1,5 +1,22 @@
 var squares, gridSize, status, dir, dirStack, framesSinceDeath, eaten;
 
+// Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyD_16611BzASCqluxN1f6BYjtSkcpIAc6Q",
+  authDomain: "snake-score-storage.firebaseapp.com",
+  databaseURL: "https://snake-score-storage.firebaseio.com",
+  projectId: "snake-score-storage",
+  storageBucket: "snake-score-storage.appspot.com",
+  messagingSenderId: "339249446361",
+  appId: "1:339249446361:web:7c9c69d5dfaf9887b8edc8",
+  measurementId: "G-CPMMVCFQQV"
+};
+
+// Initialize Firebase Database
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
+var ref = database.ref("scores");
+
 function startGame() {
 
   $(function() {$(".tint").hide();});
@@ -15,8 +32,23 @@ function startGame() {
 }
 
 function setup() {
+
   createCanvas(524, 524);
   startGame();
+
+  ref.on("value", function(data) {
+    var record = 0;
+    var scores = data.val();
+    var keys = Object.keys(scores);
+    keys.forEach((key, i) => {
+      if (scores[key] > record) {
+        record = scores[key];
+      }
+    });
+    $(".record").fadeOut(300);
+    $("<h1 class='record'>record: " + record + "</h1>").hide().appendTo(".record-container").fadeIn(300);
+  });
+
 }
 
 function draw() {
@@ -75,17 +107,13 @@ function draw() {
     // Check if snake hit walls
     if ( width-width%gridSize/2-gridSize < squares[0].x || squares[0].x < width%gridSize/2 ||
          height-height%gridSize/2-gridSize < squares[0].y || squares[0].y < height%gridSize/2 ) {
-      squares.shift();
-      squares.push( squares[ squares.length-1 ] );
-      status = "end screen";
+      die();
     }
 
     // Check if snake hit self
     for (let i = 1; i < squares.length-1; i++) {
       if ( squares[0].x == squares[i].x && squares[0].y == squares[i].y ) {
-        squares.shift();
-        squares.push( squares[ squares.length-1 ] );
-        status = "end screen";
+        die();
       }
     }
 
@@ -121,6 +149,13 @@ function draw() {
 
   }
 
+}
+
+function die() {
+  ref.push(squares.length-1);
+  squares.shift();
+  squares.push( squares[ squares.length-1 ] );
+  status = "end screen";
 }
 
 document.onkeydown = function() {
