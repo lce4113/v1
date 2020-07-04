@@ -4,8 +4,6 @@
 <head>
   <!-- Core Firebase -->
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-  <!-- Fire Base Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
   <!-- Fire Base Auth -->
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
   <!-- Fire Base Database -->
@@ -51,31 +49,10 @@
     </ul>
   </div>
   <script src="snake.js"></script>
-  <div class="record-container"></div>
-  <div class="tint"></div>
+  <div class="record-container">
+    <ol></ol>
+  </div>
+  <div class="tint" hidden="true"></div>
 </body>
-
-<style>
-  body {
-    background: rgb(175, 255, 175);
-  }
-
-  .p5Canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .tint {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 255, 255, calc(90/255));
-    z-index: -1;
-  }
-</style>
 
 </html>
