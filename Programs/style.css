@@ -1,24 +1,15 @@
-/* variables */
-:root {
-  /* Colors */
-  --orange: 255, 130, 0;
-  --darkorange: 200, 100, 0;
-  --oyblend: 255, 215, 175;
-  --lightyellow: 255, 225, 200;
-  --lightpink: 255, 230, 230;
-  --blue: 100, 100, 255;
-  --lightgreen: 175, 255, 175;
-  /* Sizes + Distances */
-  --navh: 6rem;
-  --navfs: 1.7rem;
-  --datenavw: 15vw;
-}
-
-body {
-  background: rgb(var(--lightgreen));
+/* ALL PROGRAMS */
+.program-container {
+  position: absolute;
+  top: var(--navh);
+  padding: 2rem;
 }
 
 /* SNAKE */
+#snake-body {
+  background: rgb(var(--lightgreen));
+}
+
 .p5Canvas {
   position: absolute;
   top: 50%;

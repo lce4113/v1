@@ -13,6 +13,8 @@
   <!-- 'Varela Round', sans-serif; -->
   <!-- 'Squada One', cursive; -->
   <!-- 'Cinzel Decorative', cursive; -->
+
+  <title>Home | OMahesh</title>
 </head>
 
 <body>
@@ -58,7 +60,7 @@
 
   <template id="program">
     <a href="./Programs/{{path}}">
-      <div class="program-card" id={{div-class}}>
+      <div class="program-card card" id={{div-id}}>
         <div class="program-thumbnail">
           <img src="./Programs/{{thumbnail-path}}" alt="{{name}} Thumbnail">
           <div>{{name}}</div>
@@ -69,7 +71,7 @@
   </template>
 
   <template id="message">
-    <div class="message-card" id={{div-class}}>
+    <div class="message-card card" id={{div-id}}>
       <h3>{{title}}</h3>
       <p>{{message}}</p>
     </div>

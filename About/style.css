@@ -21,10 +21,14 @@
   text-transform: uppercase;
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
   border: none;
-  transition: box-shadow 0.1s, transform 0.1s;
   overflow: hidden;
   position: relative;
   display: inline;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.about-button:hover {
+  background: rgb(var(--darkorange));
 }
 
 .about-button:active {

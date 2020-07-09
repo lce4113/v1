@@ -8,17 +8,20 @@
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
   <!-- Fire Base Database -->
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
   <!-- p5js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="stylesheet" type="text/css" href="../style.css">
   <meta charset="utf-8">
+  <title>Snake</title>
 </head>
 
-<body>
+<body id="snake-body">
   <div class="nav-bar">
     <ul class="nav-list">
       <li>
@@ -48,11 +51,20 @@
       </li>
     </ul>
   </div>
-  <script src="snake.js"></script>
+
+  <!-- <script src="./Solo/snake.js"></script>
+  <script src="./Solo/apple.js"></script>
+  <script src="./Solo/main.js"></script> -->
+
+  <script src="./Duo/snake.js"></script>
+  <script src="./Duo/apple.js"></script>
+  <script src="./Duo/database.js"></script>
+  <script src="./Duo/main.js"></script>
+
   <div class="record-container">
     <ol></ol>
   </div>
-  <div class="tint" hidden="true"></div>
+  <div class="tint"></div>
 </body>
 
 </html>
