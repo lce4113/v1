@@ -1,20 +1,24 @@
 [
-  [{
+  [
+    {
       "date": "June 22, 2020",
       "shortform": "7/22/2020"
     },
-    [{
-      "type": "program",
-      "name": "Snake",
-      "div-id": "snake",
-      "description": "Help the snake collect as many apples as it can. Just don't let it run into itself!",
-      "path": "Snake/",
-      "thumbnail-path": "Snake/thumbnail.png"
-    }, {
-      "type": "message",
-      "div-class": "first-message",
-      "title": "my first message",
-      "message": "This is a website to showcase Om's work. Messages are a way to say stuff."
-    }]
+    [
+      {
+        "type": "program",
+        "name": "Snake",
+        "div-id": "snake",
+        "description": "Help the snake collect as many apples as it can. Just don't let it run into itself!",
+        "path": "Snake/",
+        "thumbnail-path": "Snake/thumbnail.png"
+      },
+      {
+        "type": "message",
+        "div-class": "first-message",
+        "title": "my first message",
+        "message": "This is a website to showcase Om's work. Messages are a way to say stuff."
+      }
+    ]
   ]
 ]

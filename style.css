@@ -2,12 +2,18 @@
 /* variables */
 :root {
   /* Colors */
-  --orange: 255, 130, 0;
-  --darkorange: 200, 100, 0;
-  --oyblend: 255, 215, 175;
-  --lightyellow: 255, 225, 200;
-  --lightpink: 255, 230, 230;
-  --blue: 100, 100, 255;
+  --orangergb: 255, 130, 0;
+  --orange: rgb(var(--orangergb));
+  --darkorangergb: 200, 100, 0;
+  --darkorange: rgb(var(--darkorangergb));
+  --oyblendrgb: 255, 215, 175;
+  --oyblend: rgb(var(--oyblendrgb));
+  --lightyellowrgb: 255, 225, 200;
+  --lightyellow: rgb(var(--lightyellowrgb));
+  --lightpinkrgb: 255, 230, 230;
+  --lightpink: rgb(var(--lightpinkrgb));
+  --bluergb: 100, 100, 255;
+  --blue: rgb(var(--bluergb));
   /* Sizes + Distances */
   --navh: 6rem;
   --navfs: 1.7rem;
@@ -23,7 +29,7 @@
 
 body {
   width: 100vw;
-  background: linear-gradient(rgb(var(--lightyellow)), rgb(var(--oyblend)));
+  background: linear-gradient(var(--lightyellow), var(--oyblend));
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -35,7 +41,7 @@ button:focus {
 /* NAVIGATION BAR */
 /* full bar */
 .nav-bar {
-  background: rgba(var(--orange), 0.4);
+  background: rgba(var(--orangergb), 0.4);
   position: fixed;
   top: 0;
   left: 0;
@@ -55,8 +61,8 @@ button:focus {
 
 /* logo div */
 .logo {
-  background: rgba(var(--orange), 0.7);
-  border-right: 2px solid rgba(var(--darkorange), 0.7);
+  background: rgba(var(--orangergb), 0.7);
+  border-right: 2px solid rgba(var(--darkorangergb), 0.7);
   height: var(--navh);
   padding: 0rem 3rem;
 }
@@ -75,8 +81,12 @@ button:focus {
 }
 
 .nav-option:hover {
-  background: rgba(var(--orange), 0.7);
+  background: rgba(var(--orangergb), 0.7);
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.selected {
+  background: rgba(var(--orangergb), 0.7);
 }
 
 /* links for option divs */
@@ -102,7 +112,7 @@ button:focus {
 }
 
 .date-ref a {
-  color: rgb(var(--blue));
+  color: var(--blue);
   font-size: 2rem;
   font-family: 'Varela Round', sans-serif;
   text-decoration: none;
@@ -128,9 +138,9 @@ button:focus {
   letter-spacing: 0.5 rem;
   font-size: 3rem;
   text-transform: capitalize;
-  color: rgb(var(--orange));
+  color: var(--orange);
   border-radius: 5px;
-  border-bottom: 5px solid rgb(var(--orange));
+  border-bottom: 5px solid var(--orange);
   transition: text-shadow 0.5s;
 }
 
@@ -269,7 +279,7 @@ button:focus {
 /* close button at bottom right */
 .close-button {
   background: white;
-  color: rgb(var(--orange));
+  color: var(--orange);
   padding: 0.5rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -281,7 +291,7 @@ button:focus {
 }
 
 .close-button:hover {
-  background: rgb(var(--orange));
+  background: var(--orange);
   color: white;
 }
 

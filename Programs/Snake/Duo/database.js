@@ -13,6 +13,7 @@ class Firebase {
     };
     firebase.initializeApp(this.firebaseConfig);
     this.ref = firebase.database().ref("snakeDuo");
+    this.ref.once("value", snapshot => console.log(snapshot.val()));
   }
 
   search(callback) {
@@ -26,14 +27,12 @@ class Firebase {
         var lastEl = games[lastKey];
         var gameName = "game" + (parseInt(lastKey.slice(-1)[0]) + 1);
       }
-      console.log("nouwu");
 
       if (games == null || lastEl[Object.keys(lastEl)[0]].gameFull) {
 
         this.gameRef = this.ref.child(gameName);
-        this.gameRef.push({
-          gameFull: false
-        });
+        console.log("hi");
+        this.gameRef["gameFull"] = false;
 
         this.playerRef = this.gameRef.child("player1");
         this.oppRef = this.gameRef.child("player2");
@@ -44,7 +43,8 @@ class Firebase {
       } else {
 
         this.gameRef = this.ref.child(lastKey);
-        this.gameRef.child(Object.keys(lastEl)[0]).update({
+        console.log("hi2");
+        this.gameRef.update({
           gameFull: true
         });
 
@@ -68,7 +68,7 @@ class Firebase {
   }
 
   write(squares) {
-    this.playerRef.update({
+    this.playerRef.set({
       "squares": this.vectoarr(squares)
     });
   }

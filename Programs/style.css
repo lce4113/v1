@@ -1,3 +1,9 @@
+/* ROOT */
+:root {
+  --lightgreenrgb: 175, 255, 175;
+  --lightgreen: rgb(var(--lightgreenrgb));
+}
+
 /* ALL PROGRAMS */
 .program-container {
   position: absolute;
@@ -7,7 +13,7 @@
 
 /* SNAKE */
 #snake-body {
-  background: rgb(var(--lightgreen));
+  background: var(--lightgreen);
 }
 
 .p5Canvas {
